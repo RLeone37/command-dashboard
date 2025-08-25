@@ -122,17 +122,17 @@ var aIMG = [
     "https://www.wpc.ncep.noaa.gov/noaa/noaad3.gif?1755916220"
   ],
   [
+    "LIGHTNING",
+    "https://images.lightningmaps.org/blitzortung/america/index.php?animation=usa",
+    "https://www.blitzortung.org/en/Images/image_b_fl.png"
+  ],
+  [
     "SATELLITE CONUS",
     "https://cdn.star.nesdis.noaa.gov/GOES19/ABI/CONUS/GEOCOLOR/GOES19-CONUS-GEOCOLOR-625x375.gif"
   ],
   [
     "SATELLITE SE",
     "https://cdn.star.nesdis.noaa.gov/GOES19/ABI/SECTOR/se/GEOCOLOR/GOES19-SE-GEOCOLOR-600x600.gif"
-  ],
-  [
-    "LIGHTNING",
-    "https://images.lightningmaps.org/blitzortung/america/index.php?animation=usa",
-    "https://www.blitzortung.org/en/Images/image_b_fl.png"
   ],
   [
     "ATLANTIC 2-DAY",
@@ -170,12 +170,12 @@ var tileDelay = [
   10000,
   30500,
   30600,
+  15000,
+  30700,
+  30800,
   10000,
   30900,
-  15000,
-  10000,
-  5000,
-  5000,
+  30900,
   10000
 ];
 
