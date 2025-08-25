@@ -3,7 +3,7 @@ var disableSetup = false; // Manually set to true to disable setup page menu opt
 var topBarCenterText = "KR4GGJ - RJLdrone";
 
 // Grid layout desired
-var layout_cols = 3;
+var layout_cols = 4;
 var layout_rows = 3;
 
 // Menu items
@@ -135,15 +135,26 @@ var aIMG = [
     "https://www.blitzortung.org/en/Images/image_b_fl.png"
   ],
   [
+    "ATLANTIC 2-DAY",
+    "https://www.nhc.noaa.gov/archive/xgtwo/atl/latest/two_atl_2d0.png"
+  ],
+  [
+    "ATLANTIC 7-DAY",
+    "https://www.nhc.noaa.gov/archive/xgtwo/atl/latest/two_atl_7d0.png"
+  ],
+  [
     "GREY LINE / ISS / RS-44",
     "https://www.timeanddate.com/scripts/sunmap.php?iso=now",
     "https://www.heavens-above.com/orbitdisplay.aspx?icon=iss&width=600&height=300&mode=M&satid=25544",
     "https://www.heavens-above.com/orbitdisplay.aspx?icon=default&width=600&height=300&mode=M&satid=44909"
   ],
   [
-    "ADS-B / LIRR",
-    "iframe|https://globe.adsbexchange.com/",
-    "iframe|https://radar.mta.info"
+    "ADS-B",
+    "iframe|https://globe.adsbexchange.com/"
+  ],
+  [
+    "LIRR",
+    "iframe|https://radar.mta.info/"
   ],
   [
     "HF PROPAGATION",
@@ -162,6 +173,9 @@ var tileDelay = [
   10000,
   30900,
   15000,
+  10000,
+  5000,
+  5000,
   10000
 ];
 
