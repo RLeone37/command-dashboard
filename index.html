@@ -1416,7 +1416,7 @@ var tileDelay = ${JSON.stringify(settings.aImages.map(item => item[2]), null, 2)
           const containerWidth = rssTickerContent.parentElement.offsetWidth;
         
           // Define a base speed (e.g., 180px per second)
-          const baseSpeed = 180; // pixels per second
+          const baseSpeed = 150; // pixels per second
         
           // Calculate the duration based on the content width
           const duration = (contentWidth + containerWidth) / baseSpeed;
@@ -1753,7 +1753,86 @@ var tileDelay = ${JSON.stringify(settings.aImages.map(item => item[2]), null, 2)
       // Run the check when the application starts
       checkForUpdates();
     </script>
-  </head>
+  
+<style>
+/* --- Top Alerts Ticker (under top text bar) --- */
+.alert-ticker {
+  position: relative;
+  width: 100%;
+  background-color: #000;  /* solid black background */
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  padding: 4px 0;
+  font-family: "Victor Mono", sans-serif;
+  font-size: 1.4vh;
+  font-weight: bold;
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+}
+
+.alert-ticker-content {
+  display: inline-block;
+  padding-left: 100%;
+  animation: ticker var(--alerts-duration, 90s) linear infinite;
+  animation-play-state: running;
+}
+
+.alert-ticker-content a { text-decoration: none; color: #ffffff; }
+</style>
+
+
+
+
+<style id="topbar-compact">
+  /* Make the top bar extra short so tiles fit fully */
+  #defaultFrame .top-bar {
+    padding: 2px 6px !important;
+    min-height: 0 !important;
+    margin-bottom: 2px !important; /* tiny gap above alerts ticker */
+  }
+  #defaultFrame .top-bar .title,
+  #defaultFrame .top-bar .heading,
+  #defaultFrame .top-bar h1,
+  #defaultFrame .top-bar h2 {
+    font-size: 1.5vh !important;
+    line-height: 1.1 !important;
+    margin: 0 !important;
+  }
+  #defaultFrame .top-bar .left,
+  #defaultFrame .top-bar .right {
+    gap: 4px !important;
+  }
+
+  /* Responsive shrink for smaller screens */
+  @media (max-height: 900px) {
+    #defaultFrame .top-bar {
+      padding: 1px 4px !important;
+    }
+    #defaultFrame .top-bar .title,
+    #defaultFrame .top-bar .heading,
+    #defaultFrame .top-bar h1,
+    #defaultFrame .top-bar h2 {
+      font-size: 1.3vh !important;
+    }
+  }
+
+  @media (max-height: 700px) {
+    #defaultFrame .top-bar {
+      padding: 0 3px !important;
+    }
+    #defaultFrame .top-bar .title,
+    #defaultFrame .top-bar .heading,
+    #defaultFrame .top-bar h1,
+    #defaultFrame .top-bar h2 {
+      font-size: 1.1vh !important;
+    }
+  }
+</style>
+
+
+
+</head>
   <!--
 d8888b.  .d88b.  d8888b. db    db
 88  `8D .8P  Y8. 88  `8D `8b  d8'
@@ -1763,6 +1842,7 @@ d8888b.  .d88b.  d8888b. db    db
 Y8888P'  `Y88P'  Y8888D'    YP
 -->
   <body onload="main()">
+
     <div id="iFrameContainer" class="iframe-container">
       <iframe id="FullScreen" class="full-screen" src="" title="Zoom"></iframe>
       <!-- Settings Page Div -->
@@ -1951,5 +2031,102 @@ Y8888P'  `Y88P'  Y8888D'    YP
       </div>
     </div>
 
-  </body>
+  
+<script>
+  // --- Southwest Florida Alerts Ticker ---
+  const ALERT_FEEDS = [
+    // Hurricanes (Atlantic)
+    { url: "https://www.nhc.noaa.gov/index-at.xml", label: "[HURRICANE]", color: "#ff3b30" },
+
+    // Tornado Warnings (NWS offices covering SW Florida)
+    { url: "https://api.weather.gov/alerts/active.atom?office=TBW&event=Tornado%20Warning", label: "[TORNADO]", color: "#007bff" },
+    { url: "https://api.weather.gov/alerts/active.atom?office=MFL&event=Tornado%20Warning", label: "[TORNADO]", color: "#007bff" },
+        { url: "https://api.weather.gov/alerts/active.atom?office=TBW&event=Severe%20Thunderstorm%20Warning", label: "[SEVERE TSTM]", color: "#28a745" },
+    { url: "https://api.weather.gov/alerts/active.atom?office=MFL&event=Severe%20Thunderstorm%20Warning", label: "[SEVERE TSTM]", color: "#28a745" }
+
+  ];
+
+  function updateAlertsSpeed() {
+    const el = document.querySelector(".alert-ticker-content");
+    if (!el) return;
+    const contentWidth = el.scrollWidth;
+    const containerWidth = el.parentElement.offsetWidth;
+    const baseSpeed = 150; // px/sec
+    const duration = (contentWidth + containerWidth) / baseSpeed;
+    el.style.setProperty("--alerts-duration", `${duration}s`);
+  }
+
+  function mountAlertsTicker() {
+    const topBar = document.querySelector("#defaultFrame .top-bar");
+    const alertDiv = document.createElement("div");
+    alertDiv.className = "alert-ticker";
+    alertDiv.id = "alert-ticker";
+    alertDiv.innerHTML = `<div class="alert-ticker-content" id="alert-ticker-content"></div>`;
+
+    if (topBar && topBar.parentElement) {
+      // Insert directly after the top bar so it sits between top bar and tiles
+      topBar.insertAdjacentElement("afterend", alertDiv);
+    } else {
+      // Fallback: append to body
+      document.body.prepend(alertDiv);
+    }
+
+    fetchAndDisplayAlerts();
+  }
+function fetchAndDisplayAlerts() {
+    const proxy = "https://corsproxy.io/";
+    const el = document.getElementById("alert-ticker-content");
+    if (!el) return;
+
+    const chunks = new Array(ALERT_FEEDS.length).fill("");
+
+    ALERT_FEEDS.forEach(({ url, label, color }, idx) => {
+      const fetchOne = () => {
+        fetch(proxy + "?url=" + encodeURIComponent(url))
+          .then(r => r.text())
+          .then(txt => {
+            const xml = new DOMParser().parseFromString(txt, "text/xml");
+            const itmTag = xml.querySelector("entry") ? "entry" : "item";
+            const items = xml.querySelectorAll(itmTag);
+
+            let out = "";
+            items.forEach(item => {
+              const title = item.querySelector("title")?.textContent || "(untitled)";
+              const linkEl = item.querySelector("link");
+              let link = "";
+              if (linkEl) link = linkEl.getAttribute("href") || linkEl.textContent || "#";
+              out += `<span style="margin-right:28px;"> <span style="color:#aaa;">|</span> "><strong><span style="color:${color}">${label}</span></strong> <a href="${link}" target="_blank">${title}</a></span>`;
+            });
+
+            chunks[idx] = out || `<span style="margin-right:28px;"> <span style="color:#aaa;">|</span> "><strong><span style="color:${color}">${label}</span></strong> No active items.</span></strong>`;
+            el.innerHTML = chunks.join("");
+            updateAlertsSpeed();
+          })
+          .catch(err => {
+            console.error("Alert feed error:", url, err);
+            chunks[idx] = `<span style="margin-right:28px;"> <span style="color:#aaa;">|</span> "><strong><span style="color:${color}">${label}</span></strong> (feed error)</span></strong>`;
+            el.innerHTML = chunks.join("");
+            updateAlertsSpeed();
+          });
+      };
+
+      fetchOne();
+      setInterval(fetchOne, 5 * 60 * 1000); // refresh every 5 minutes
+    });
+
+    el.addEventListener("mouseenter", () => {
+      el.style.animationPlayState = "paused";
+    });
+    el.addEventListener("mouseleave", () => {
+      el.style.animationPlayState = "running";
+    });
+  }
+
+  // Initialize after all content (including top bar) is laid out
+  window.addEventListener("load", () => {
+    try { mountAlertsTicker(); } catch(e) { console.error("alerts ticker init", e); }
+  });
+</script>
+
+</body>
 </html>
