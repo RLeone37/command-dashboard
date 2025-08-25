@@ -1742,6 +1742,7 @@ var tileDelay = ${JSON.stringify(settings.aImages.map(item => item[2]), null, 2)
         topBarLeft.textContent = `${localDate} - ${localTime}`;
         const topBarCenter = document.getElementById("topBarCenter");
         topBarCenter.textContent = topBarCenterText;
+	topBarCenter.style.color = "limegreen";
         const topBarRight = document.getElementById("topBarRight");
         topBarRight.textContent = `${utcDate} ${utcTime}`;
       }

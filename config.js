@@ -1,6 +1,7 @@
 // CUT START
 var disableSetup = false; // Manually set to true to disable setup page menu option
 var topBarCenterText = "KR4GGJ - RJLdrone";
+var topBarCenterTextColor = "limegreen";
 
 // Grid layout desired
 var layout_cols = 4;
@@ -21,7 +22,7 @@ var aURL = [
     "2196F3",
     "CLUBLOG",
     "https://clublog.org/livestream/VA3HDL",
-    "1.7"
+    "1"
   ],
   [
     "2196F3",
@@ -167,16 +168,16 @@ var aIMG = [
 var tileDelay = [
   30100,
   30200,
-  10000,
+  10100,
+  30300,
+  30400,
+  15000,
   30500,
   30600,
-  15000,
+  10200,
   30700,
   30800,
-  10000,
-  30900,
-  30900,
-  10000
+  10300
 ];
 
 // CUT END
