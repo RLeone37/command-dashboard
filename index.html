@@ -2033,10 +2033,11 @@ Y8888P'  `Y88P'  Y8888D'    YP
 
   
 <script>
-  // --- Southwest Florida Alerts Ticker ---
+  // --- Alerts Ticker ---
   const ALERT_FEEDS = [
-    // Hurricanes (Atlantic)
-    { url: "https://www.nhc.noaa.gov/index-at.xml", label: "[HURRICANE (ATLANTIC)]", color: "#ff3b30" },
+    // Hurricanes
+    { url: "https://www.nhc.noaa.gov/index-at.xml", label: "[HURRICANE (ATLANTIC)]",       color: "#ff3b30" },
+    { url: "https://www.nhc.noaa.gov/index-ep.xml", label: "[HURRICANE (E PACIFIC)]",     color: "#ff3b30" },
 
     // Tornado Warnings (NWS offices covering SW Florida)
     { url: "https://api.weather.gov/alerts/active.atom?office=TBW&event=Tornado%20Warning", label: "[TORNADO (TBW)]", color: "#007bff" },

@@ -1,6 +1,7 @@
 // CUT START
 var disableSetup = false; // Manually set to true to disable setup page menu option
 var topBarCenterText = "KR4GGJ - RJLdrone";
+var topBarCenterTextColor = "limegreen";
 
 // Grid layout desired
 var layout_cols = 4;
@@ -115,17 +116,18 @@ var aIMG = [
     "https://radar.weather.gov/ridge/standard/KTBW_loop.gif"
   ],
   [
+    "RADAR US/SE",
+    "https://radar.weather.gov/ridge/standard/CONUS_loop.gif",
+    "https://radar.weather.gov/ridge/standard/KTBW_loop.gif"
+  ],
+  [
     "NATIONAL FORECAST",
     "https://www.wpc.ncep.noaa.gov/noaa/noaad3.gif?1755916220"
   ],
   [
-    "LIGHTNING US/SE",
+    "LIGHTNING",
     "https://images.lightningmaps.org/blitzortung/america/index.php?animation=usa",
     "https://www.blitzortung.org/en/Images/image_b_fl.png"
-  ],
-  [
-    "",
-    ""
   ],
   [
     "SATELLITE US/SE",
@@ -133,17 +135,19 @@ var aIMG = [
     "https://cdn.star.nesdis.noaa.gov/GOES19/ABI/SECTOR/se/GEOCOLOR/GOES19-SE-GEOCOLOR-600x600.gif"
   ],
   [
-    "PACIFIC OUTLOOK 2/7 DAY",
+    "EASTERN PACIFIC TROPICAL OUTLOOK 2/7 DAY",
     "https://www.nhc.noaa.gov/archive/xgtwo/epac/latest/two_pac_2d0.png",
     "https://www.nhc.noaa.gov/archive/xgtwo/epac/latest/two_pac_7d0.png"
   ],
   [
-    "ATLANTIC OUTLOOK 2/7 DAY",
+    "ATLANTIC TROPICAL OUTLOOK 2/7 DAY",
     "https://www.nhc.noaa.gov/archive/xgtwo/atl/latest/two_atl_2d0.png",
     "https://www.nhc.noaa.gov/archive/xgtwo/atl/latest/two_atl_7d0.png"
   ],
   [
-    ""
+    "ATLANTIC TROPICAL OUTLOOK 2/7 DAY",
+    "https://www.nhc.noaa.gov/archive/xgtwo/atl/latest/two_atl_2d0.png",
+    "https://www.nhc.noaa.gov/archive/xgtwo/atl/latest/two_atl_7d0.png"
   ],
   [
     "GREY LINE / ISS / RS-44",
@@ -156,7 +160,8 @@ var aIMG = [
     "iframe|https://globe.adsbexchange.com/"
   ],
   [
-    ""
+    "ADS-B",
+    "iframe|https://globe.adsbexchange.com/"
   ],
   [
     "HF PROPAGATION",
@@ -167,18 +172,18 @@ var aIMG = [
 
 // Image rotation intervals in milliseconds per tile - If the line below is commented, tiles will be rotated every 5000 milliseconds (5s)
 var tileDelay = [
+  30100,
+  30200,
+  10100,
+  30300,
+  30400,
   15000,
-  30000,
-  15000,
-  15000,
-  15000,
-  15000,
-  15000,
-  30000,
-  10000,
-  30000,
-  30000,
-  10000
+  30500,
+  30600,
+  10200,
+  30700,
+  30800,
+  10300
 ];
 
 // CUT END
