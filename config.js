@@ -1,7 +1,6 @@
 // CUT START
 var disableSetup = false; // Manually set to true to disable setup page menu option
 var topBarCenterText = "KR4GGJ - RJLdrone";
-var topBarCenterTextColor = "limegreen";
 
 // Grid layout desired
 var layout_cols = 4;
@@ -111,36 +110,38 @@ var aRSS = [];
 // the comma at the end is important!
 var aIMG = [
   [
-    "RADAR",
-    "https://radar.weather.gov/ridge/standard/CONUS_loop.gif"
+    "RADAR US/SE",
+    "https://radar.weather.gov/ridge/standard/CONUS_loop.gif",
+    "https://radar.weather.gov/ridge/standard/KTBW_loop.gif"
   ],
   [
-    "LOCAL RADAR",
-    "https://radar.weather.gov/ridge/standard/KTBW_loop.gif"
+    "",
+    ""
   ],
   [
     "NATIONAL FORECAST",
     "https://www.wpc.ncep.noaa.gov/noaa/noaad3.gif?1755916220"
   ],
   [
-    "LIGHTNING",
+    "LIGHTNING US/SE",
     "https://images.lightningmaps.org/blitzortung/america/index.php?animation=usa",
     "https://www.blitzortung.org/en/Images/image_b_fl.png"
   ],
   [
-    "SATELLITE CONUS",
-    "https://cdn.star.nesdis.noaa.gov/GOES19/ABI/CONUS/GEOCOLOR/GOES19-CONUS-GEOCOLOR-625x375.gif"
-  ],
-  [
-    "SATELLITE SE",
+    "SATELLITE US/SE",
+    "https://cdn.star.nesdis.noaa.gov/GOES19/ABI/CONUS/GEOCOLOR/GOES19-CONUS-GEOCOLOR-625x375.gif",
     "https://cdn.star.nesdis.noaa.gov/GOES19/ABI/SECTOR/se/GEOCOLOR/GOES19-SE-GEOCOLOR-600x600.gif"
   ],
   [
-    "ATLANTIC 2-DAY",
+    "",
+    ""
+  ],
+  [
+    "ATLANTIC TROPICAL OUTLOOK 2/7 DAY",
     "https://www.nhc.noaa.gov/archive/xgtwo/atl/latest/two_atl_2d0.png"
   ],
   [
-    "ATLANTIC 7-DAY",
+    "",
     "https://www.nhc.noaa.gov/archive/xgtwo/atl/latest/two_atl_7d0.png"
   ],
   [
@@ -154,8 +155,7 @@ var aIMG = [
     "iframe|https://globe.adsbexchange.com/"
   ],
   [
-    "LIRR",
-    "iframe|https://radar.mta.info/"
+    ""
   ],
   [
     "HF PROPAGATION",
