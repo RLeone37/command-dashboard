@@ -115,10 +115,6 @@ var aIMG = [
     "https://radar.weather.gov/ridge/standard/KTBW_loop.gif"
   ],
   [
-    "",
-    ""
-  ],
-  [
     "NATIONAL FORECAST",
     "https://www.wpc.ncep.noaa.gov/noaa/noaad3.gif?1755916220"
   ],
@@ -126,6 +122,10 @@ var aIMG = [
     "LIGHTNING US/SE",
     "https://images.lightningmaps.org/blitzortung/america/index.php?animation=usa",
     "https://www.blitzortung.org/en/Images/image_b_fl.png"
+  ],
+  [
+    "",
+    ""
   ],
   [
     "SATELLITE US/SE",
@@ -168,7 +168,7 @@ var aIMG = [
 var tileDelay = [
   15000,
   30000,
-  30000,
+  15000,
   15000,
   15000,
   30000,
