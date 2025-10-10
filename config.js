@@ -133,16 +133,17 @@ var aIMG = [
     "https://cdn.star.nesdis.noaa.gov/GOES19/ABI/SECTOR/se/GEOCOLOR/GOES19-SE-GEOCOLOR-600x600.gif"
   ],
   [
-    "",
-    ""
+    "PACIFIC OUTLOOK 2/7 DAY",
+    "https://www.nhc.noaa.gov/archive/xgtwo/epac/latest/two_pac_2d0.png",
+    "https://www.nhc.noaa.gov/archive/xgtwo/epac/latest/two_pac_7d0.png"
   ],
   [
-    "ATLANTIC TROPICAL OUTLOOK 2/7 DAY",
-    "https://www.nhc.noaa.gov/archive/xgtwo/atl/latest/two_atl_2d0.png"
-  ],
-  [
-    "",
+    "ATLANTIC OUTLOOK 2/7 DAY",
+    "https://www.nhc.noaa.gov/archive/xgtwo/atl/latest/two_atl_2d0.png",
     "https://www.nhc.noaa.gov/archive/xgtwo/atl/latest/two_atl_7d0.png"
+  ],
+  [
+    ""
   ],
   [
     "GREY LINE / ISS / RS-44",
@@ -171,8 +172,8 @@ var tileDelay = [
   15000,
   15000,
   15000,
-  30000,
-  30000,
+  15000,
+  15000,
   30000,
   10000,
   30000,
