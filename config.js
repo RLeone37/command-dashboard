@@ -116,11 +116,6 @@ var aIMG = [
     "https://radar.weather.gov/ridge/standard/KTBW_loop.gif"
   ],
   [
-    "RADAR US/SE",
-    "https://radar.weather.gov/ridge/standard/CONUS_loop.gif",
-    "https://radar.weather.gov/ridge/standard/KTBW_loop.gif"
-  ],
-  [
     "NATIONAL FORECAST",
     "https://www.wpc.ncep.noaa.gov/noaa/noaad3.gif?1755916220"
   ],
@@ -128,6 +123,16 @@ var aIMG = [
     "LIGHTNING",
     "https://images.lightningmaps.org/blitzortung/america/index.php?animation=usa",
     "https://www.blitzortung.org/en/Images/image_b_fl.png"
+  ],
+  [
+    "WILDLAND FIRE POTENTIAL 7-DAY OUTLOOK",
+    "https://www.nifc.gov/modules/custom/nicc_outlooks/images/outlook_d1.png",
+    "https://www.nifc.gov/modules/custom/nicc_outlooks/images/outlook_d2.png",
+    "https://www.nifc.gov/modules/custom/nicc_outlooks/images/outlook_d3.png",
+    "https://www.nifc.gov/modules/custom/nicc_outlooks/images/outlook_d4.png",
+    "https://www.nifc.gov/modules/custom/nicc_outlooks/images/outlook_d5.png",
+    "https://www.nifc.gov/modules/custom/nicc_outlooks/images/outlook_d6.png",
+    "https://www.nifc.gov/modules/custom/nicc_outlooks/images/outlook_d7.png"
   ],
   [
     "SATELLITE US/SE",
@@ -145,9 +150,8 @@ var aIMG = [
     "https://www.nhc.noaa.gov/archive/xgtwo/atl/latest/two_atl_7d0.png"
   ],
   [
-    "ATLANTIC TROPICAL OUTLOOK 2/7 DAY",
-    "https://www.nhc.noaa.gov/archive/xgtwo/atl/latest/two_atl_2d0.png",
-    "https://www.nhc.noaa.gov/archive/xgtwo/atl/latest/two_atl_7d0.png"
+    "WILDLAND FIRE POTENTIAL MONTHLY OUTLOOK",
+    "https://www.nifc.gov/nicc-files/predictive/outlooks/month1_outlook.png"
   ],
   [
     "GREY LINE / ISS / RS-44",
@@ -172,18 +176,18 @@ var aIMG = [
 
 // Image rotation intervals in milliseconds per tile - If the line below is commented, tiles will be rotated every 5000 milliseconds (5s)
 var tileDelay = [
-  30100,
-  30200,
-  10100,
-  30300,
-  30400,
   15000,
-  30500,
-  30600,
-  10200,
-  30700,
-  30800,
-  10300
+  15100,
+  15200,
+  10000,
+  15400,
+  15500,
+  15600,
+  15700,
+  15800,
+  15900,
+  15100,
+  15200
 ];
 
 // CUT END
