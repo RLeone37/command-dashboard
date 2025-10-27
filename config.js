@@ -164,8 +164,8 @@ var aIMG = [
     "iframe|https://globe.adsbexchange.com/"
   ],
   [
-    "EARTHQUAKES 2.5+ PAST 24 HOURS",
-    "https://earthquakes.berkeley.edu/seismo.real.time.map.html"
+    "EARTHQUAKES 2.5+ PAST 7 DAYS",
+    "iframe|https://www.cisn.org/map/"
   ],
   [
     "HF PROPAGATION",
