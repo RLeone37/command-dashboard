@@ -164,8 +164,8 @@ var aIMG = [
     "iframe|https://globe.adsbexchange.com/"
   ],
   [
-    "ADS-B",
-    "iframe|https://globe.adsbexchange.com/"
+    "USGS EARTHQUAKES 2.5+ PAST 24 HOURS",
+    "https://earthquake.usgs.gov/earthquakes/map/?extent=11.52309,-130.16602&extent=58.07788,-59.85352&listOnlyShown=true&baseLayer=terrain&settings=true"
   ],
   [
     "HF PROPAGATION",
